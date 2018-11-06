@@ -1,6 +1,6 @@
 'use strict';
 
-import routes from './route.js';
+import routes from './routes.js';
 
 
 Vue.use(VueRouter);
