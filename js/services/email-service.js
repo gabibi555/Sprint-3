@@ -21,14 +21,17 @@ function query(filter = null) {
                 emails = getEmailsFromJSON();
                 storageService.store(EMAILS_KEY, emails);
             }
-            console.log('emails: ', emails);
+            emailsDB = emails
             if (filter === null) return emails;
-            else return emails.filter(email =>
-                email.type.toUpperCase().includes(filter.byType.toUpperCase()))
+            else {
+                return emails.filter(email =>
+                    email.type.toUpperCase().includes(filter.byType.toUpperCase()))
+            }
         })
 }
 
 function getEmailById(emailId) {
+
     var email = emailsDB.find(email => email.id === emailId)
     return Promise.resolve(email);
 }
@@ -37,7 +40,7 @@ function getEmailById(emailId) {
 function getEmailsFromJSON() {
     return [
         {
-            id: utilService.makeId(6),
+            id: 'sfevd7',
             to: '',
             subject: 'Welcome to EmailVille',
             body: 'We want to welcome you for choosing us to be your e-mail compeny, and wish you a great e-mail experience!',
@@ -45,7 +48,7 @@ function getEmailsFromJSON() {
             sentAt: Date.now()
         },
         {
-            id: utilService.makeId(6),
+            id: 'js7ucy',
             to: '',
             subject: 'checking',
             body: 'checking',
