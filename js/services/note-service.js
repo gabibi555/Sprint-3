@@ -24,8 +24,6 @@ function query(filter = null) {
                 storageService.store(KEY, notes);
             }
             notesDB = notes
-            console.log(notesDB)
-            console.log('notes: ', notes);
             if (filter === null) return notes;
             else return notes.filter(note =>
                 note.type.toUpperCase().includes(filter.byType.toUpperCase()))
@@ -38,34 +36,34 @@ function getNoteById(NoteId) {
 }
 
 
-function deleteNote(note) {
-    
-    console.log(note)
+function deleteNote(noteId) {
+    var idx = notesDB.findIndex(note => note.id === noteId)
+    notesDB.splice(idx, 1)
+    storageService.store(KEY, notesDB)
 }
 
 function createInitialNotes() {
     console.log('hey')
-
     return [
         {
             id: utilService.makeId(6),
             title: 'reminder',
-            type: 'Text Note',
+            type: 'Text',
             txts: ['dont forget to close the AC'],
             importance: false,
         },
         {
             id: utilService.makeId(6),
-            type: 'Image Note',
+            type: 'Image',
             title: 'fix the roof',
             txts: ['buying nails'],
             importance: false,
         },
         {
             id: utilService.makeId(6),
-            type: 'Todo Note',
+            type: 'Todo',
             title: 'To be done till tomorrow',
-            txts: ['to do landury', 'to do Css'],
+            txts: ['to do landury' ,'to do Css'],
             importance: false,
         },
 

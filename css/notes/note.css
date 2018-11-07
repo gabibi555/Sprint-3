@@ -19,3 +19,28 @@
 .note-preview-img{
     width: 120px
 }
+
+.text-note-add-container{
+    display: flex;
+    max-width: 500px;
+    height: 500px;
+    flex-direction: column;
+    margin: 17px;
+}
+.todo-note-add-container{
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    height: 500px;
+    flex-direction: column;
+    margin: 17px;
+}
+.text-input{
+    margin:5px;
+}
+.image-input{
+    margin:5px;
+}
+.todo-input{
+    margin:5px;
+}

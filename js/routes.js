@@ -26,7 +26,8 @@ var myRoutes = [
     // {path: '/emailville', component: emailPage },
     // {path: '/emailville/:emailId', component: emailDetails },
     {path: '/noteville', component: noteApp },
-    {path: '/noteville/:noteId', component: noteEdit }
+    // {path: '/noteville/edit/:noteId', component: noteEdit },
+    {path: '/noteville/edit/:noteId?', component: noteEdit},
 ]
 
 export default myRoutes;

@@ -7,7 +7,10 @@ import noteList from '../cmps/notes-cmps/note-list.cmp.js'
 export default {
     template: `
         <section class="note-app">
+            
+        <!-- <h1>{{(note.id)? 'Edit Car': 'Add Car'}}</h1> -->
         <h1>Welcome To NoteVille</h1>
+        <button @click="goToEdit">New Note</button> 
         <note-list @selected="selectNote" :notes="notes"></note-list>
         </section>
     `,
@@ -18,8 +21,12 @@ export default {
     },
     methods: {
         selectNote(note) {
-            this.$router.push('/noteville/' + note.id)
+            this.$router.push('/noteville'+'/edit/' + note.id)
+        },
+        goToEdit(){
+            this.$router.push('/noteville/edit')
         }
+
 
     },
     created() {

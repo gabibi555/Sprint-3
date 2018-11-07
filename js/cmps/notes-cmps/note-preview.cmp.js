@@ -18,9 +18,9 @@ export default {
     },
     methods:{
         setNoteType(){
-            if(this.note.type==='Image Note') this.src = 'img/img-icon.png'
-            if(this.note.type==='Text Note') this.src = 'img/img-icon.png'
-            if(this.note.type==='Todo Note') this.src = 'img/todo-icon.png'
+            if(this.note.type==='Image') this.src = 'img/img-icon.png'
+            if(this.note.type==='Text') this.src = 'img/img-icon.png'
+            if(this.note.type==='Todo') this.src = 'img/todo-icon.png'
         }
     },
     computed: {
