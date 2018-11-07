@@ -11,6 +11,7 @@ export default {
     deleteNote,
     editNote,
 }
+
 var notes = []
 
 

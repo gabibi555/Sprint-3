@@ -22,6 +22,7 @@ export default {
     },
     created() {
         noteService.query()
+        .then(notes => console.log(notes))
         .then(notes => this.notes = notes)
     },
     computed: {
