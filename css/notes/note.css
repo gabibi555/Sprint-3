@@ -13,6 +13,7 @@
     text-align: center;
     margin:5px;
     padding:2px;
+    cursor: pointer;
 }
 
 .note-preview-img{
