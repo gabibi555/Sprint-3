@@ -1,10 +1,9 @@
 'use strict';
 
 
-export const utilService = {
+export default {
     makeId
 }
-
 
 function makeId(length) {
     var text = "";
