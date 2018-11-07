@@ -28,9 +28,9 @@ export default {
             this.filter = filter
         },
         loadEmails() {
-            // emailService.query().then(emails => {
-            //     this.emails = emails;
-            // })
+            emailService.query().then(emails => {
+                this.emails = emails;
+            })
         }
     },
     created() {
@@ -39,18 +39,18 @@ export default {
     computed: {
         emailsToShow() {
             if (!this.filter) return this.emails;
-            //     return this.emails
-            //         .filter(email => email.title.includes(this.filter.byVendor))
-            //         .filter(email => !this.filter.maxPrice || email.listPrice.amount < this.filter.maxPrice)
-            //         .filter(email => !this.filter.minPrice || email.listPrice.amount > this.filter.minPrice)
-            // },
-
+            return this.emails
+                .filter(email => email.title.includes(this.filter.byVendor))
+                .filter(email => !this.filter.maxPrice || email.listPrice.amount < this.filter.maxPrice)
+                .filter(email => !this.filter.minPrice || email.listPrice.amount > this.filter.minPrice)
         },
-        components: {
-            emailList,
-            emailFilter
 
-        }
+    },
+    components: {
+        emailList,
+        emailFilter
+
     }
 }
+
 

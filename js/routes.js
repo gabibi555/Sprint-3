@@ -8,7 +8,7 @@ import noteApp from './pages/note-app.cmp.js';
 var myRoutes = [
     {path: '/home', component: homePage },
     {path: '/about', component: aboutPage },
-    {path: '/email', component: emailPage },
+    {path: '/emailville', component: emailPage },
     {path: '/noteville', component: noteApp },
 ]
 
