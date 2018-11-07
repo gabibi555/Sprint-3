@@ -1,0 +1,20 @@
+.note-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.note-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 150px;
+    height: 200px;
+    border: 1px solid saddlebrown;
+    text-align: center;
+    margin:5px;
+    padding:2px;
+}
+
+.note-preview-img{
+    width: 120px
+}

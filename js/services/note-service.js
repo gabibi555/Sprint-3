@@ -43,20 +43,23 @@ function createInitialNotes (){
     return   notes = [
         {
             id: utilService.makeId(6),
+            title:'reminder',
             type: 'Text Note',
-            txt: '',
+            txts: ['dont forget to close the AC'],
             importance: false,
         },
         {
             id: utilService.makeId(6),
             type: 'Image Note',
-            txt: '',
+            title:'fix the roof',
+            txts: ['buying nails'],
             importance: false,
         },
         {
             id: utilService.makeId(6),
             type: 'Todo Note',
-            todo: [],
+            title:'To be done till tomorrow',
+            txts: ['to do landury','to do Css'],
             importance: false,
         },
     

@@ -8,26 +8,28 @@ export default {
     template: `
         <section class="note-app">
         <h1>Welcome To NoteVille</h1>
-        <note-list :notes="notes"></note-list>
+        <note-list @selected="selectNote" :notes="notes"></note-list>
         </section>
     `,
     data() {
         return {
-            notes:[]
+            notes: []
         }
     },
     methods: {
-       
+        selectNote(note) {
+            this.$router.push('/noteville/' + note.id)
+        }
 
     },
     created() {
         noteService.query()
-        .then(notes => this.notes = notes)
+            .then(notes => this.notes = notes)
     },
     computed: {
 
     },
-    components:{
+    components: {
         noteService,
         noteTxt,
         noteList
