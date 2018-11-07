@@ -1,23 +1,23 @@
 
 export default {
     template: `
-        <section class="filter" >
-        filter cmp
+        <section class="filter-container">
+            <form>
+                Email Search: <input type="text" v-model="filter.emailTitle" />
+                <button @click.prevent="setFilter">Search</button>
+            </form>
         </section>
-    `,
+        `,
     data() {
         return {
+            filter: {
+                emailTitle: '',
+            },
         }
     },
     methods: {
-       
-
-    },
-    created() {
-        
-    },
-    computed: {
-
+        setFilter() {
+            this.$emit('filtered', this.filter.emailTitle);
+        }
     }
-
 };
