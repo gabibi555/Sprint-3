@@ -1,6 +1,6 @@
 'use strict';
 
-import storageService from './storeage-service.js'
+import storageService from './storage-service.js'
 import utilService from './util-service.js'
 
 
@@ -10,19 +10,22 @@ export default {
 }
 
 
-const EMAILS_KEY = 'books';
+const EMAILS_KEY = 'emails';
 
 var emailsDB = []
-query();
 
-function query() {
-    var emails = storageService.load(EMAILS_KEY);
-    if (!emails) {
-        emails = getEmailsFromJSON();
-        storageService.store(EMAILS_KEY, emails)
-    }
-    emailsDB = emails;
-    return Promise.resolve(emailsDB);
+function query(filter = null) {
+    return storageService.load(EMAILS_KEY)
+        .then(emails => {
+            if (!emails || !emails.length) {
+                emails = getEmailsFromJSON();
+                storageService.store(EMAILS_KEY, emails);
+            }
+            console.log('emails: ', emails);
+            if (filter === null) return emails;
+            else return emails.filter(email =>
+                email.type.toUpperCase().includes(filter.byType.toUpperCase()))
+        })
 }
 
 function getEmailById(emailId) {
