@@ -1,6 +1,6 @@
 'use strict';
 
-function makeid(length) {
+function makeId(length) {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -8,4 +8,8 @@ function makeid(length) {
         text += possible.charAt(Math.floor(Math.random() * possible.length));
     }
     return text;
+}
+
+export default {
+    makeId
 }
