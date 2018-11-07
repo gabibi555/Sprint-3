@@ -3,26 +3,29 @@
 import emailService from '../services/email-service.js';
 import emailList from '../cmps/email-cmps/email-list.cmp.js';
 import emailFilter from '../cmps/email-cmps/email-filter.cmp.js';
+import storageService from '../services/storage-service.js';
+
 
 
 export default {
     template: ` 
     <section class="email-app-container">
         <email-filter @filtered="setFilter"></email-filter>
-        <email-list v-if="emails.length>0" @selected="selectEmail" :emails="emailsToShow"></email-list>
-        asff
+        <email-list v-if="emails.length>0 || selected" @selected="selectEmail" :emails="emailsToShow"></email-list>
+        <router-view  @delete="deleteEmail"></router-view>
     </section>
     `,
     data() {
         return {
             filter: null,
-            emails: []
+            emails: [],
+            selected: null,
         }
     },
     methods: {
         selectEmail(email) {
-            this.$router.push('/email/' + email.id)
-
+            this.selected = email;
+            this.$router.push('/emailville/' + email.id)
         },
         setFilter(filter) {
             this.filter = filter
@@ -31,6 +34,11 @@ export default {
             emailService.query().then(emails => {
                 this.emails = emails;
             })
+        },
+        deleteEmail(emailToDelete) {
+            var idx = this.emails.findIndex(email => email.id === emailToDelete.id);
+            this.emails.splice(idx, 1);
+            storageService.store('emails', this.emails)
         }
     },
     created() {
@@ -49,7 +57,6 @@ export default {
     components: {
         emailList,
         emailFilter
-
     }
 }
 

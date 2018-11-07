@@ -26,8 +26,6 @@ export default {
         }
     },
     created() {
-        console.log(this.emails);
-
     },
     computed: {
 
