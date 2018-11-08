@@ -27,7 +27,7 @@ export default {
                 subject: '',
                 body: '',
                 isRead: false,
-                sentAt: Date.now()
+                sentAt: moment()
             }
         }
     },

@@ -1,4 +1,3 @@
-import emailStatus from './email-status.cmp.js';
 import emailPreview from './email-preview.cmp.js';
 
 
@@ -15,7 +14,6 @@ export default {
         </email-preview>
         </div>
          
-        <email-status v-if="filter.emailStatus === 'all'" :emailsProg="emails"></email-status>
     </section>
     `,
     data() {
@@ -23,18 +21,17 @@ export default {
         }
     },
     methods: {
-        selectedEmail(email){
+        selectedEmail(email) {
             this.$emit('selected', email);
         }
     },
     created() {
-        
+
     },
     computed: {
 
     },
     components: {
         emailPreview,
-        emailStatus
     }
 };

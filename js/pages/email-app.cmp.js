@@ -4,6 +4,7 @@ import emailService from '../services/email-service.js';
 import emailList from '../cmps/email-cmps/email-list.cmp.js';
 import emailFilter from '../cmps/email-cmps/email-filter.cmp.js';
 import storageService from '../services/storage-service.js';
+import emailStatus from '../cmps/email-cmps/email-status.cmp.js';
 import emailSort from '../cmps/email-cmps/email-sort.cmp.js';
 
 
@@ -12,13 +13,16 @@ import emailSort from '../cmps/email-cmps/email-sort.cmp.js';
 export default {
     template: ` 
     <section class="email-app-container">
-        <button @click="composeEmail">Compose</button>
-        <email-filter @filtered="setFilter"></email-filter>
+        <div class="status-unread-container">
+            <span class="unread-emails">Unread Emails: {{unreadCount}}</span>
+            <email-status class="email-status" v-if="filter && filter.emailStatus === 'all'" :emailsProg="emails"></email-status>  
+        </div>
         <email-sort @sort="sort"></email-sort>
-        <span>Unread Emails: {{unreadCount}}</span>
+        <email-filter @filtered="setFilter"></email-filter>
         <email-list :filter="filter" v-if="emails.length>0 && !selected" 
-        @selected="selectEmail" :emails="emailsToShow"></email-list>
-        <router-view @unSelected="unSelect" @delete="deleteEmail"></router-view>
+            @selected="selectEmail" :emails="emailsToShow"></email-list>
+            <router-view @unSelected="unSelect" @delete="deleteEmail"></router-view>
+            <button class="compose-email-btn" @click="composeEmail">Compose</button>
     </section>
     `,
     data() {
@@ -35,7 +39,7 @@ export default {
             this.$router.push('/emailville/' + email.id);
             email.isRead = true;
             storageService.store('emails', this.emails)
-        console.log(this.emails);
+            this.unreadEmailsCheck();
 
         },
         unSelect() {
@@ -68,8 +72,8 @@ export default {
         },
         unreadEmailsCheck() {
             var unreadCount = 0;
-            this.emails.forEach(email=>{
-                if(!email.isRead) unreadCount++;
+            this.emails.forEach(email => {
+                if (!email.isRead) unreadCount++;
             })
             this.unreadCount = unreadCount;
             console.log(unreadCount);
@@ -77,8 +81,8 @@ export default {
     },
     created() {
         this.loadEmails()
-        .then(emails => this.unreadEmailsCheck());
-        
+            .then(() => this.unreadEmailsCheck());
+
     },
     computed: {
         emailsToShow() {
@@ -109,7 +113,8 @@ export default {
     components: {
         emailList,
         emailFilter,
-        emailSort
+        emailSort,
+        emailStatus
     }
 }
 

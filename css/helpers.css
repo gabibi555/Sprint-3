@@ -1,0 +1,17 @@
+/* flex */
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+/* general */
+.margin-auto {
+    margin: 0 auto;
+}

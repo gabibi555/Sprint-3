@@ -3,7 +3,7 @@ export default {
     name: 'emailstatus',
     props: ['emailsProg'],
     template: `
-        <div class="myProgress">
+        <div class="my-progress">
         <div v-if="getProgress" class="status-bar" :style="getProgClass">{{getProgress}}</div>
         </div>
         
