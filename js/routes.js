@@ -3,10 +3,10 @@
 import homePage from './pages/home-page.js';
 import aboutPage from './pages/about-page.js';
 import emailPage from './pages/email-app.cmp.js';
-import noteApp from './pages/note-app.cmp.js';
-import noteEdit from './pages/note-edit.cmp.js';
 import emailDetails from './pages/email-details.cmp.js';
 import composeEmail from './pages/email-compose.cmp.js';
+import noteApp from './pages/note/note-app.cmp.js';
+import noteEdit from './pages/note/note-edit.cmp.js';
 
 
 var myRoutes = [
