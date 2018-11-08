@@ -1,9 +1,8 @@
-.nav-bar-container{
+.nav-bar-container {
     background-color: rgb(255, 255, 255);
     margin-right: 2.5rem;
-    margin-left: 1.5rem;
-    margin-top: 1rem;
     font-family: Quicksand;
+    padding: 20px;
 }
 
 .main-app-container {
@@ -15,17 +14,17 @@
     margin-bottom: 50px;
 }
 
-.nav-single-tab{
+.nav-single-tab {
     font-size: 30px;
     color: rgb(31, 31, 31);
     text-decoration: none;
     margin-bottom: 20px;
+    padding: 0 7px;
 }
 
-.nav-single-tab:hover{
-background: rgb(148, 148, 148) 1px;
-border-radius: 99999px;
-padding: 0 7px;
+.nav-single-tab:hover {
+    background: rgb(148, 148, 148) 1px;
+    border-radius: 99999px;
 }
 
 .router-link-active {
@@ -36,4 +35,3 @@ padding: 0 7px;
     width: 180px;
     padding: 0 7px;
 }
-

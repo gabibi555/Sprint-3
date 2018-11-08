@@ -3,14 +3,11 @@
 export default {
     template: `
     <div class="sort-emails-container">
-        <span class="sort-emails-trigger" @mouseover="showSortOpts"
-        @mouseout="hideSortOpts">
-            Sort by:
-        </span>
-        <div class="sort-opts" v-if="showOpts" @mouseover="showSortOpts" @mouseout="hideSortOpts">
-            <span class="sort-by-sent" @click="sort('date')">Sent At</span>
-            <br>
-            <span class="sort-by-title" @click="sort('title')">Title</span>
+
+        <div class="sort-opts">
+            <div>Sort by:</div>
+            <div class="sort-by-sent sort-btn" @click="sort('date')">Sent At</div>
+            <div class="sort-by-title sort-btn" @click="sort('title')">Title</div>
         </div>
     </div>
     `,
@@ -20,12 +17,6 @@ export default {
         }
     },
     methods: {
-        showSortOpts() {
-            this.showOpts = true;
-        },
-        hideSortOpts() {
-            this.showOpts = false;
-        },
         sort(sortParam) {
             this.$emit('sort', sortParam);
         }

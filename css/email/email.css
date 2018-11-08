@@ -1,6 +1,7 @@
 .email-app-container {
     font-family: Quicksand;
     flex: 1;
+    padding: 20px;
 }
 
 .my-progress {
@@ -25,35 +26,41 @@
     border: solid rgb(148, 148, 148) 1px;
     border-radius: 9999px;
     margin-bottom: 7px;
-    padding: 5px;
+    padding: 6px 15px;
     font-size: 16px;
     cursor: pointer;
     height: 2rem;
     overflow: hidden;
     display: flex;
+    align-items: center;
+    position: relative;
 }
 
 .single-email-box:hover {
     box-shadow: 0px 9px 7px -7px rgba(0, 0, 0, 0.45);
 }
 
-.is-read {
-    background-color: rgb(236, 236, 236);
+.mark-read-btn::before {
+    font-family: Awsome;
+    border-radius: 9999px;
+    padding: 5px 5px;
+    border: gray solid 1px;
+    display: none;
+    position: absolute;
+    right: 7px;
+}
+
+.mark-read-btn:hover::before {
+    background: gray;
+    border-radius: 9999px;
 }
 
 .mark-read-btn {
-    border-radius: 9999px;
-    padding: 1px 7px;
-    border: gray solid 1px;
-    display: none;
+    height: 28px;
 }
 
-.mark-read-btn:hover {
-    background: gray;
-}
-
-.single-email-box:hover .mark-read-btn {
-    display: inline;
+.single-email-box:hover .mark-read-btn::before {
+    display: inline-block;
 }
 
 .single-email-box:hover .mail-prev-time {
@@ -62,6 +69,7 @@
 
 .mail-prev-subject {
     flex: 0 0 250px;
+    font-weight: bold;
 }
 
 .mail-prev-body {
@@ -70,11 +78,26 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     padding: 0 20px;
+    font-weight: bold;
+}
+
+.mail-prev-time {
+    font-weight: bold;
+}
+
+.single-email-box.is-read>* {
+    font-weight: normal;
+}
+
+.single-email-box.is-read {
+    background-color: rgb(236, 236, 236);
 }
 
 .status-unread-container {
     display: flex;
     align-items: flex-start;
+    margin-bottom: 65px;
+    margin-top: 25px;
 }
 
 .unread-emails {
@@ -83,9 +106,81 @@
 
 .compose-email-btn {
     position: fixed;
-    bottom: 100px;
-    right: 200px;
+    bottom: 80px;
+    right: 10%;
     width: 200px;
     height: 55px;
     border-radius: 9999px;
+    border: none;
+    font-size: 30px;
+    background: #91c850;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.compose-email-btn:hover {
+    transform: scale(1.1);
+}
+
+.filter-sort-container {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.sort-emails-trigger {
+    margin-left: 50px;
+}
+
+.sort-btn {
+    width: 70px;
+    height: 24px;
+    padding: 2px;
+    border-radius: 9999px;
+    border: solid black 1px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.sort-btn:hover {
+    background: rgb(148, 148, 148);
+    border-radius: 9999px;
+}
+
+.sort-opts {
+    display: flex;
+    margin-left: 100px;
+}
+
+.radio-filter {
+    margin-left: 100px;
+}
+
+.email-list-container {}
+
+.email-details-body {
+    font-family: Quicksand;
+}
+
+.email-details-container {
+    border: solid #b9b9b9 1px;
+    padding: 20px;
+}
+
+.normal-btn {
+    border: solid black 1px;
+    border-radius: 99999px;
+    padding: 4px 10px;
+}
+
+.normal-btn:hover {
+    border: solid black 1px;
+    background-color: #fff;
+    border-radius: 99999px;
+    padding: 4px 10px;
+}
+
+.details-back-btn {
+    margin-left: 300px;
 }

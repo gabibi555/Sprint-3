@@ -7,7 +7,7 @@ export default {
             <div class="mail-prev-subject">{{email.subject}}</div> 
             <div class="mail-prev-body">{{emailBody}}</div>
             <div class="mail-prev-time">{{showFullTime}}</div>
-            <span class="mark-read-btn" @click.stop="changeIsRead">{{readOrUnread}}</span>
+            <span class="mark-read-btn" :class="readOrUnread" @click.stop="changeIsRead"></span>
         </div>
     `,
     data() {
@@ -36,8 +36,8 @@ export default {
             if(this.email.isRead) return 'is-read';
         },
         readOrUnread() {
-            if(this.email.isRead) return 'Mark unread';
-            else return 'Mark read';
+            if(this.email.isRead) return 'fa-envelope-open far';
+            else return 'fa-envelope far';
         }
 
     }

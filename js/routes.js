@@ -2,11 +2,12 @@
 
 import homePage from './pages/home-page.js';
 import aboutPage from './pages/about-page.js';
-import emailPage from './pages/email-app.cmp.js';
+import emailPage from './pages/email/email-app.cmp.js';
 import noteApp from './pages/note-app.cmp.js';
 import noteEdit from './pages/note-edit.cmp.js';
-import emailDetails from './pages/email-details.cmp.js';
-import composeEmail from './pages/email-compose.cmp.js';
+import emailList from './cmps/email-cmps/email-list.cmp.js'
+import emailDetails from './pages/email/email-details.cmp.js';
+import composeEmail from './pages/email/email-compose.cmp.js';
 
 
 var myRoutes = [
@@ -19,6 +20,11 @@ var myRoutes = [
         component: emailPage,
         children: [
             {
+                path: '',
+                name: 'email-list',
+                component: emailList
+            },
+            {
                 path: ':emailId',
                 name: 'email-details',
                 component: emailDetails
@@ -27,8 +33,8 @@ var myRoutes = [
 
         ]
     },
-    {path: '/noteville', component: noteApp },
-    {path: '/noteville/edit/:noteId?', component: noteEdit},
+    { path: '/noteville', component: noteApp },
+    { path: '/noteville/edit/:noteId?', component: noteEdit },
 ]
 
 export default myRoutes;
