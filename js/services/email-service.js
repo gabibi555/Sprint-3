@@ -7,6 +7,8 @@ import utilService from './util-service.js'
 export default {
     getEmailById,
     query,
+    saveEmail,
+    sortEmails
 }
 
 
@@ -14,7 +16,7 @@ const EMAILS_KEY = 'emails';
 
 var emailsDB = []
 
-function query(filter = null) {
+function query() {
     return storageService.load(EMAILS_KEY)
         .then(emails => {
             if (!emails || !emails.length) {
@@ -22,11 +24,7 @@ function query(filter = null) {
                 storageService.store(EMAILS_KEY, emails);
             }
             emailsDB = emails
-            if (filter === null) return emails;
-            else {
-                return emails.filter(email =>
-                    email.type.toUpperCase().includes(filter.byType.toUpperCase()))
-            }
+            return emails;
         })
 }
 
@@ -56,4 +54,34 @@ function getEmailsFromJSON() {
             sentAt: Date.now()
         }
     ]
+}
+
+function saveEmail(email) {
+    return storageService.load(EMAILS_KEY)
+        .then(emails => {
+                email.id = utilService.makeId(6);
+                emails.push(email);
+            return storageService.store(EMAILS_KEY, emails);
+        });
+}
+
+function sortEmails(sortParam) {
+    return storageService.load(EMAILS_KEY)
+        .then(emails => {
+            if (sortParam === 'date') {
+                emails.sort((a, b) => {
+                    if (a.sentAt > b.sentAt) return -1;
+                    if (a.sentAt < b.sentAt) return 1;
+                    return 0;
+                })
+            } else if (sortParam === 'title') {
+                emails.sort((a, b) => {
+                    if (a.subject.toUpperCase() < b.subject.toUpperCase()) return -1;
+                    if (a.subject.toUpperCase() > b.subject.toUpperCase()) return 1;
+                    return 0
+                })
+            }
+            storageService.store(EMAILS_KEY, emails)
+            return emails; 
+        })
 }

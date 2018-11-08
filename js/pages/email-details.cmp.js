@@ -19,10 +19,11 @@ export default {
     methods: {
         back() {
             this.$router.push('/emailville')
+            this.$emit('unSelected')
         },
         deleteEmail() {
             this.$emit('delete', this.email);
-            
+
         },
         loadEmailById() {
             let emailId = this.$route.params.emailId;
