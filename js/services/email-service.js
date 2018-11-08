@@ -43,7 +43,7 @@ function getEmailsFromJSON() {
             subject: 'Welcome to EmailVille',
             body: 'We want to welcome you for choosing us to be your e-mail compeny, and wish you a great e-mail experience!',
             isRead: false,
-            sentAt: Date.now()
+            sentAt: moment()
         },
         {
             id: 'js7ucy',
@@ -51,7 +51,7 @@ function getEmailsFromJSON() {
             subject: 'checking',
             body: 'checking',
             isRead: false,
-            sentAt: Date.now()
+            sentAt: moment()
         }
     ]
 }

@@ -1,8 +1,9 @@
 @import './base.css';
 @import './fonts.css';
+@import './helpers.css';
+@import './nav-bar.css';
 
 
-@import './header.css';
 @import './toggle-btn.css';
 @import './user-msg.css';
 @import './email/email.css';
