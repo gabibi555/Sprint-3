@@ -9,56 +9,64 @@ const KEY = 'notesVilleKey';
 export default {
     query,
     deleteNote,
-    editNote,
+    getNoteById
 }
-var notes = []
+
+var notesDB = []
 
 
-function query (filter = null) {
+function query(filter = null) {
+    if (notesDB.length > 0) return Promise.resolve(notesDB);
     return storageService.load(KEY)
         .then(notes => {
             if (!notes || !notes.length) {
                 notes = createInitialNotes();
                 storageService.store(KEY, notes);
             }
-            console.log('notes: ', notes);
+            notesDB = notes
             if (filter === null) return notes;
-            else return notes.filter(note => 
-                            note.type.toUpperCase().includes(filter.byType.toUpperCase()))
+            else return notes.filter(note =>
+                note.type.toUpperCase().includes(filter.byType.toUpperCase()))
         })
 }
 
-function editNote(note) {
-
+function getNoteById(NoteId) {
+    var note = notesDB.find(note => note.id === NoteId)
+    return Promise.resolve(note);
 }
 
-function deleteNote(note) {
 
+function deleteNote(noteId) {
+    var idx = notesDB.findIndex(note => note.id === noteId)
+    notesDB.splice(idx, 1)
+    storageService.store(KEY, notesDB)
 }
 
-function createInitialNotes (){
+function createInitialNotes() {
     console.log('hey')
+    return [
+        {
+            id: utilService.makeId(6),
+            title: 'reminder',
+            type: 'Text',
+            txts: ['dont forget to close the AC'],
+            importance: false,
+        },
+        {
+            id: utilService.makeId(6),
+            type: 'Image',
+            title: 'fix the roof',
+            txts: ['buying nails'],
+            importance: false,
+        },
+        {
+            id: utilService.makeId(6),
+            type: 'Todo',
+            title: 'To be done till tomorrow',
+            txts: ['to do landury' ,'to do Css'],
+            importance: false,
+        },
 
-    return   notes = [
-        {
-            id: utilService.makeId(6),
-            type: 'Text Note',
-            txt: '',
-            importance: false,
-        },
-        {
-            id: utilService.makeId(6),
-            type: 'Image Note',
-            txt: '',
-            importance: false,
-        },
-        {
-            id: utilService.makeId(6),
-            type: 'Todo Note',
-            todo: [],
-            importance: false,
-        },
-    
     ]
 }
 

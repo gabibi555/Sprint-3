@@ -1,0 +1,46 @@
+.note-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.note-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 150px;
+    height: 200px;
+    border: 1px solid saddlebrown;
+    text-align: center;
+    margin:5px;
+    padding:2px;
+    cursor: pointer;
+}
+
+.note-preview-img{
+    width: 120px
+}
+
+.text-note-add-container{
+    display: flex;
+    max-width: 500px;
+    height: 500px;
+    flex-direction: column;
+    margin: 17px;
+}
+.todo-note-add-container{
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    height: 500px;
+    flex-direction: column;
+    margin: 17px;
+}
+.text-input{
+    margin:5px;
+}
+.image-input{
+    margin:5px;
+}
+.todo-input{
+    margin:5px;
+}
