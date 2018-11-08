@@ -5,8 +5,8 @@ export default {
     props: ['emails', 'filter'],
     template: `
     <section>
-    <h1>List Of Your Emails</h1>
     <div class="email-list-container">
+    <h1>List Of Your Emails</h1>
         <email-preview 
             @click.native="selectedEmail(email)"
             v-for='email in emails' 
