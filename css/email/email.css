@@ -1,3 +1,9 @@
+
+
+.nav-bar-container {
+    display: none;
+}
+
 .email-app-container {
     font-family: Quicksand;
     flex: 1;
@@ -184,3 +190,13 @@
 .details-back-btn {
     margin-left: 300px;
 }
+
+
+
+@media (min-width: 1200px) {
+    .nav-bar-container {
+        display: flex;
+    }
+    
+}
+
