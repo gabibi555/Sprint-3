@@ -3,7 +3,8 @@
 export default {
     props: ['note'],
     template: `
-        <section v-if="note.id" class="home-page" >
+        <section v-if="note.id" class="img-note-container" >
+            <div class="title">{{note.title}}</div>
             <textarea v-if="note.type === 'text'" v-model="note.txts[0]" rows="4" cols="20"></textarea>
         </section> 
         <section v-else>

@@ -4,20 +4,21 @@ import noteService from '../../services/note-service.js'
 import noteTxt from '../../cmps/notes-cmps/note-txt.cmp.js'
 import noteImg from '../../cmps/notes-cmps/note-img.cmp.js'
 import noteTodo from '../../cmps/notes-cmps/note-todo.cmp.js'
+import eventBus from '../../event-bus.js'
 
 export default {
     template: `  
     <section v-if="note.id" class="note-editor">
+       
         <h4>Edit Your Note</h4>
-        <div>{{note.title}}</div>
         <note-txt v-if="note.type === 'text'" :note="note"></note-txt>
         <note-img v-if="note.url" :note="note"></note-img>
         <note-todo v-if="note.type === 'todo'" :note="note"></note-todo>
-        
+        <div class="nav-btn">
             <button @click="goBack">Back To Notes</button>
             <button @click="deleteNote">Delete Note</button>
             <button @click="editOldNote">Save Note</button>
-        
+        </div>
     </section>
 
     <div v-else class="note-editor">
@@ -99,6 +100,11 @@ export default {
                         })
                 })
         }
+        eventBus.$on('deleteNote', (note)=> {
+            console.log('event bus !on!', note);
+            this.deleteTodo(note.id)
+            
+        })
 
     },
     computed: {

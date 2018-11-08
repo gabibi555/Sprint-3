@@ -6,7 +6,7 @@ export default {
     template: `
     <section class="note-list">
         <div v-for="note in notes" class="note-container" >
-            <note-preview :note="note" @click.native="selectedNote(note)"></note-preview>
+            <note-preview  :note="note" @click.native="selectedNote(note)"></note-preview>
         </div>
     </section>
     `,

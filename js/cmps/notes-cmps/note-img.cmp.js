@@ -4,16 +4,17 @@ export default {
     props: ['note'],
     template: `
         <section v-if="note.id" class="img-note-container">
-        <input class="image-input" type="text" v-model="note.title" placeholder="Name Your Note">
+        <input class="text-input" type="text" v-model="note.title" placeholder="Name Your Note">
             <div class="edit-img-container"><img v-if="note.url" :src="note.url" /></div>
         </section>
         <section v-else>
          <div v-if="(note.type === 'image')">{{note.type}}
             <div class="text-note-add-container">
+            <div class="title">{{note.title}}</div>
                 <input class="image-input" type="text" v-model="note.title" placeholder="Name Your Note">
                 <img v-if="note.url" :src="note.url" />
-                <input type="text" v-model="note.url" placeholder="Put Url Here">
-                <h2>Upload Img</h2>
+                <h2>Upload Image Below</h2>
+                <input class="text-input"  type="text" v-model="note.url" placeholder="Put Url Here">
                 <button @click="addNote">Save Note</button>
             </div>
          </div>

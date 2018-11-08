@@ -4,19 +4,22 @@ export default {
     props: ['note'],
     template: `
     <section class="todo-control">
-        <div>
+        <div class=todo-input-container>
             <input type="text" v-model="note.title" placeholder="Name Your Note">
             <div>
             <button @click="addNewTodo">Add Todo</button>
-            <input type="text" v-model="newTodo.txt">
+            <input class="text-input" type="text" v-model="newTodo.txt">
             </div>
         </div>
+        <div class="todo-list">
+        <div class="title">{{note.title}}</div>
         <li v-for="(txt,idx) in note.txts" type="text">
             <span v-if="newTodo.isDone" style="textDecoration:line-through;">{{txt.txt}}</span>
             <span v-else>{{txt.txt}}</span>
             <button @click="deleteTodo(idx)">X</button>
             <button @click="markDoneTodo(txt, $event)">V</button>
         </li>
+        </div>
         <button v-if="!note.id" @click="addNote">Save Todo</button>
     </section>
     `,
