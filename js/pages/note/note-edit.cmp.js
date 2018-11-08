@@ -1,77 +1,38 @@
 'use strict';
 
 import noteService from '../../services/note-service.js'
+import noteTxt from '../../cmps/notes-cmps/note-txt.cmp.js'
+import noteImg from '../../cmps/notes-cmps/note-img.cmp.js'
+import noteTodo from '../../cmps/notes-cmps/note-todo.cmp.js'
 
 export default {
-    template: `
-        <section v-if="note.id" class="note-editor" >
+    template: `  
+    <section v-if="note.id" class="note-editor">
         <h4>Edit Your Note</h4>
         <div>{{note.title}}</div>
-<!-- <input type="text" v-model="note.title" > -->
-        <note-img v-if="note.url"></note-img>
-        <img v-if="note.url" :src="note.url" />
-<!-- <input type="text" v-model="note.title" > -->
-        <textarea v-if="note.type === 'text'" v-model="note.txts[0]" rows="4" cols="20"></textarea>       
-        <input v-if="note.type === 'image'" type="text" v-model="note.txts[0]" >
-<!-- Div for todo Edit -->
-        <div v-if="note.type === 'todo'" class="todo-control">
-        <input type="text" v-model="newTodo.txt" >
-        <button @click="addNewTodo">Add Todo</button>
-        </div>
-        <li v-for="(txt,idx) in note.txts"  type="text">    
-             <span v-if="txt.isDone" style="textDecoration:line-through;">{{txt.txt}}</span>
-             <span v-else>{{txt.txt}}</span>
-            <div v-if="note.type === 'todo'" >
-            <button @click="deleteTodo(idx)">{{note.type}}</button>
-            <button @click="markDoneTodo(txt, $event)">V</button>
-            </div>
-        </li>
-<!-- general btns -->
-        <button @click="goBack">Back To Notes</button>
-        <button @click="deleteNote">Throw Note</button>
-        <button @click="editOldNote">Save Note</button>
-        </section>
-<!-- editors for notes -->
-        <div v-else class="note-editor" >
-            <h4>Add Note</h4>
+        <note-txt v-if="note.type === 'text'" :note="note"></note-txt>
+        <note-img v-if="note.url" :note="note"></note-img>
+        <note-todo v-if="note.type === 'todo'" :note="note"></note-todo>
+        
+            <button @click="goBack">Back To Notes</button>
+            <button @click="deleteNote">Delete Note</button>
+            <button @click="editOldNote">Save Note</button>
+        
+    </section>
+
+    <div v-else class="note-editor">
+        <h4>Add Note</h4>
+        <div class="note-pick-btns">
             <button @click="setNoteAdd('text')">text note</button>
             <button @click="setNoteAdd('image')">image note</button>
             <button @click="setNoteAdd('todo')">todo note</button>
             <button @click="goBack">Back To Notes</button>
-<!-- txt note edioter -->
-            <div  v-if="(note.type === 'text')">
-              <div class="text-note-add-container">
-                    <input class="text-input" type="text" v-model="note.title" placeholder="Name Your Note">
-                    <textarea v-model="note.txts[0]" rows="4" cols="20">
-                    </textarea>
-                    <button @click="addNote">Save Note</button>
-              </div> 
-            </div>
-<!-- img note edioter -->          
-            <div v-if="(note.type === 'image')">{{note.type}}
-               <div class="text-note-add-container">
-                    <input class="image-input" type="text" v-model="note.title" placeholder="Name Your Note">
-                    <img v-if="note.url" :src="note.url" />
-                    <input type="text" v-model="note.url" placeholder="Put Url Here">
-                    <h2>Upload Img</h2>
-                    <button @click="addNote">Save Note</button>
-               </div>  
-            </div>
-<!-- todo note edioter -->
-            <div v-if="(note.type === 'todo')">{{note.type}}
-                    <div class="todo-note-add-container">
-                    <input class="todo-input" type="text"  v-model="note.title" placeholder="Name Your Note">
-                    <input class="todo-input-text" type="text" placeholder="Write Your Todo">
-                    <button @click="addNote">Save Note</button>
-                    <div v-if="note.type === 'todo'" class="todo-control">
-                    </div>
-                    <ul>
-                        <li></li>
-                    </ul>
-                </div>  
-            </div>
         </div>
-    `,
+        <note-txt @addNewNote="addNote" class="text-note-add-container" v-if="note.type === 'text'" :note="note"></note-txt>
+        <note-img v-if="note.type === 'image'" @addNewNote="addNote":note="note"></note-img>
+        <note-todo @addNewNote="addNote" v-if="note.type === 'todo'" :note="note"></note-todo>    
+    </div>
+`,
     data() {
         return {
             note: {
@@ -82,10 +43,6 @@ export default {
                 url: null,
                 importance: false,
             },
-            newTodo: {
-                txt: '',
-                isDone: false,
-            }
         }
     },
     methods: {
@@ -113,29 +70,21 @@ export default {
         setNoteAdd(noteType) {
             this.note.type = noteType
         },
-        addNote() {
-            noteService.addNewNote(this.note)
+        addNote(note) {
+            noteService.addNewNote(note)
             this.goBack()
         },
         editOldNote() {
             noteService.editNote(this.note)
             this.goBack()
         },
-        addNewTodo(){
-            console.log(this.newTodo) 
+        addNewTodo() {
             this.note.txts.push(this.newTodo)
             noteService.editNote(this.note)
         }
-        // onFileChange(e) {
-        //     const file = e.target.files[0];
-        //     this.note.url = URL.createObjectURL(file);
-        // }
-
-
-
     },
     created() {
-        console.log('created')
+        // console.log('created')
         if (this.$route.params.noteId) {
             noteService.query()
                 .then(() => {
@@ -154,6 +103,11 @@ export default {
     },
     computed: {
 
+    },
+    components: {
+        noteImg,
+        noteTxt,
+        noteTodo
     }
 
 };

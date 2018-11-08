@@ -21,11 +21,19 @@
 }
 
 .text-note-add-container{
+    max-width: 500px;
+    border: 1px solid;
+    height: 500px;
+    /* display: flex; */
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px;    
+    /* display: flex;
     max-width: 500px;
     height: 500px;
     flex-direction: column;
-    margin: 17px;
+    margin: 17px; */
 }
 .todo-note-add-container{
     display: flex;
@@ -34,6 +42,32 @@
     height: 500px;
     flex-direction: column;
     margin: 17px;
+}
+
+.img-note-container{
+    max-width: 500px;
+    border: 1px solid;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.edit-img-container{
+    max-width: 300px;
+}
+
+.todo-control{
+    max-width: 500px;
+    border: 1px solid;
+    height: 500px;
+    /* display: flex; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px;
+}
+.note-pick-btns{
+    
 }
 .text-input{
     margin:5px;

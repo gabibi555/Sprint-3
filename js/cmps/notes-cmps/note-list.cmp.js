@@ -15,6 +15,7 @@ export default {
         }
     },
     created() {
+        // console.log(this.notes)
     },
     methods: {
         selectedNote(note) {
