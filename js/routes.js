@@ -29,8 +29,6 @@ var myRoutes = [
                 name: 'email-details',
                 component: emailDetails
             },
-
-
         ]
     },
     { path: '/noteville', component: noteApp },

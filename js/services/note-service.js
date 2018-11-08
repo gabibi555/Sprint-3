@@ -9,7 +9,9 @@ const KEY = 'notesVilleKey';
 export default {
     query,
     deleteNote,
-    getNoteById
+    getNoteById,
+    addNewNote,
+    editNote
 }
 
 var notesDB = []
@@ -35,6 +37,21 @@ function getNoteById(NoteId) {
     return Promise.resolve(note);
 }
 
+function editNote(noteToSave){
+    var idx =  notesDB.findIndex(note=> note.id === noteToSave.id) 
+    notesDB.splice(idx,1)
+    notesDB.unshift(noteToSave)
+    storageService.store(KEY, notesDB)
+}
+
+function addNewNote(noteToSave){
+    noteToSave.id = utilService.makeId(6)
+    notesDB.push(noteToSave)
+    console.log(notesDB)
+    storageService.store(KEY, notesDB)
+
+}
+
 
 function deleteNote(noteId) {
     var idx = notesDB.findIndex(note => note.id === noteId)
@@ -48,22 +65,26 @@ function createInitialNotes() {
         {
             id: utilService.makeId(6),
             title: 'reminder',
-            type: 'Text',
+            type: 'text',
             txts: ['dont forget to close the AC'],
             importance: false,
         },
         {
             id: utilService.makeId(6),
-            type: 'Image',
+            type: 'image',
             title: 'fix the roof',
             txts: ['buying nails'],
+            url:'../img/img-icon.png',
             importance: false,
         },
         {
             id: utilService.makeId(6),
-            type: 'Todo',
+            type: 'todo',
             title: 'To be done till tomorrow',
-            txts: ['to do landury' ,'to do Css'],
+            txts: [
+                {txt: 'to do landury', isDone: false},
+                {txt: 'to do Css', isDone: false}
+                ],
             importance: false,
         },
 

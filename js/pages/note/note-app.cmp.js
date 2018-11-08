@@ -1,8 +1,8 @@
 'use strict';
 
-import noteService from '../services/note-service.js'
-import noteTxt from '../cmps/notes-cmps/note-txt.cmp.js'
-import noteList from '../cmps/notes-cmps/note-list.cmp.js'
+import noteService from '../../services/note-service.js'
+import noteTxt from '../../cmps/notes-cmps/note-txt.cmp.js'
+import noteList from '../../cmps/notes-cmps/note-list.cmp.js'
 
 export default {
     template: `
