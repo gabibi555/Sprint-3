@@ -1,0 +1,59 @@
+.lior-gabi-pics {
+    display: flex;
+    min-width: 510px;
+    flex-direction: column;
+}
+
+.lior-title {
+    align-self: center;
+    font-size: 35px;
+    margin-top: 52px;
+    order: -5;
+}
+
+.lior-pic {
+    border-radius: 99999px;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 52px;
+    align-self: center;
+    order: -5;
+}
+
+.middle-title {
+    align-self: center;
+    font-size: 35px;
+    margin-bottom: 52px;
+    border: dashed rgb(91, 131, 177) 7px;
+    border-radius: 9999px;
+    padding: 50px;
+    white-space: nowrap;
+}
+
+.gabi-title {
+    align-self: center;
+    font-size: 35px;
+}
+
+.gabi-pic {
+    border-radius: 99999px;
+    height: 200px;
+    width: 200px;
+    align-self: center;
+}
+
+@media (min-width: 1000px) {
+    .middle-title {
+        padding: 23px;
+        margin-bottom: 10px;
+    }
+    .lior-pic {
+        margin-bottom: 10px;
+    }
+    .lior-title {
+        margin-top: 10px;
+    }
+    .lior-gabi-pics {
+        margin-left: 123px;
+    }
+}
