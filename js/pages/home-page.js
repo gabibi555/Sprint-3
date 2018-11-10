@@ -3,9 +3,7 @@
 export default {
     template: `
         <section class="home-page" >
-            <div class="home-title">
-                 Welcome to AppSus
-            </div>
+            <h1 class="home-title">Welcome to AppSus!</h1>
           <div class="big-btns-container">
               <div @click="goEmail" class="go-to-email">
                   <div class="go-to-emailtxt">

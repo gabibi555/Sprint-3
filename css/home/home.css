@@ -3,10 +3,10 @@
 }
 
 .home-title{
- margin-left: 30%;
- padding: 30px;
  font-size: 50px;
  white-space: nowrap;
+ text-align: center;
+ margin-top: 29px;
 }
 
 .go-to-emailtxt{
@@ -17,40 +17,63 @@
     margin-bottom: 50px;
     display: flex;
     justify-content: center;
-    margin: auto;
+    margin: 0 auto;
     align-self: auto;
     max-width: 200px;
+    width: 200px;  
     height: 200px;  
     background-color: #4a9bdb;
     border-radius: 50%;
     -webkit-box-shadow: -4px 5px 17px 5px rgba(0,0,0,0.75);
     -moz-box-shadow: -4px 5px 17px 5px rgba(0,0,0,0.75);
     box-shadow: -4px 5px 17px 5px rgba(0,0,0,0.75);
-    transition: 0.5
+    transition: 0.5;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
 }
+
+.go-to-email:hover {
+    transform: scale(1.5);
+}
+
+.go-to-note:hover {
+    transform: scale(1.5);
+}
+
 
 .go-to-note{
     margin-top:50px;
     display: flex;
     justify-content: center;
-    margin: auto;
+    margin: 0 auto;
     align-self: auto;
     max-width: 200px;
     height: 200px;  
+    width: 200px;  
     background: #40b244;
-    border-radius: 50%;
+    border-radius: 9999px;
     -webkit-box-shadow: -4px 5px 17px 5px rgba(0,0,0,0.75);
     -moz-box-shadow: -4px 5px 17px 5px rgba(0,0,0,0.75);
     box-shadow: -4px 5px 17px 5px rgba(0,0,0,0.75);
-    transition: 0.5
+    transition: 0.5;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
 }
 
-@media (max-width: 1000px) {
+.big-btns-container {
+    margin-top: 123px;
+}
+
+@media (min-width: 1000px) {
     .home-title{
-        margin: 0
+        margin-left: 100px;
     }
-    ..big-btns-container{
-        
+    .big-btns-container{
+        display: flex;
+        margin-top: 120px;
+    }
+    .go-to-email {
+        margin-left: 315px;
     }
   
 }
