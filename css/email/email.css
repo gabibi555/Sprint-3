@@ -3,6 +3,10 @@
     flex: 1;
 }
 
+.main-app-container {
+    font-family: Quicksand;
+}
+
 .my-progress {
     border: black solid 1px;
     border-radius: 99999px;
@@ -240,22 +244,60 @@
     position: relative;
     width: 491px;
     height: 528px;
+    border-radius: 7px;
+    font-family: Quicksand;
 }
 
 .to-subject-compose {
     display: flex;
+    width: 500px;
 }
 
 .subject-compose {
-    overflow: hidden; 
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    margin: 20px;
+}
+
+.back-compose {
+    margin: 20px;
+}
+
+.send-compose {
+    position: fixed;
+    width: 200px;
+    height: 74px;
+    border-radius: 9999px;
+    border: none;
+    font-size: 30px;
+    background: #40b244;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    bottom: 118px;
+    right: 29%;
+}
+
+.send-compose:hover {
+    transform: scale(1.1);
+}
+
+.to-compose>input {
+    border-radius: 9999px;
+    border: solid gray 1px;
+}
+
+.subject-compose>input {
+    border-radius: 9999px;
+    border: solid gray 1px;
 }
 
 .to-compose {
-    overflow: hidden; 
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    margin: 20px;
 }
 
 .normal-btn {
@@ -343,10 +385,26 @@
     .email-details-container {
         width: 1055px;
         height: 501px;
-        margin-left: 21px;
+        margin-left: 219px;
     }
     .details-delete-btn {
         position: absolute;
         bottom: 30px;
+    }
+    .to-subject-compose {
+        margin-left: 500px;
+    }
+    .compose-massage {
+        width: 1001px;
+        height: 472px;
+        margin-left: 250px;
+    }
+    .send-compose {
+        bottom: 66px;
+        right: 9%;
+        z-index: 50;
+    }
+    .back-compose {
+        margin-left: 300px;
     }
 }
