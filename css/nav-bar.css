@@ -1,8 +1,12 @@
 .nav-bar-container {
     background-color: rgb(255, 255, 255);
-    margin-right: 2.5rem;
     font-family: Quicksand;
-    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    z-index: 5;
+    border-top: 1px #cccccc solid;
 }
 
 .main-app-container {
@@ -12,26 +16,40 @@
 .title-logo {
     font-size: 40px;
     margin-bottom: 50px;
+    display: none;
 }
 
 .nav-single-tab {
     font-size: 30px;
     color: rgb(31, 31, 31);
     text-decoration: none;
-    margin-bottom: 20px;
-    padding: 0 7px;
+    padding: 17px 11.5px;
 }
 
 .nav-single-tab:hover {
     background: rgb(148, 148, 148) 1px;
-    border-radius: 99999px;
 }
 
 .router-link-active {
     color: white;
     background-color: rgb(91, 131, 177);
     text-decoration: none;
-    border-radius: 9999px;
-    width: 180px;
-    padding: 0 7px;
+    text-align: center;
 }
+
+@media (min-width: 1000px) {
+    .nav-bar-container {
+        display: flex;
+        flex-direction: column;
+        position: unset;
+        bottom: unset;
+        z-index: unset;
+        border-top: none;
+        position: fixed;
+    }
+    .nav-single-tab {
+        padding: 60px 32.5px;
+        text-align: center;
+    }
+}
+

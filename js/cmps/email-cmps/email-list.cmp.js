@@ -10,7 +10,7 @@ export default {
         <email-preview 
             @click.native="selectedEmail(email)"
             v-for='email in emails' 
-            v-bind:email="email">
+            :email="email" :emails="emails">
         </email-preview>
         </div>
          
