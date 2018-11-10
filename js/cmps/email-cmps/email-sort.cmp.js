@@ -5,7 +5,7 @@ export default {
     <div class="sort-emails-container">
 
         <div class="sort-opts">
-            <div>Sort by:</div>
+            <div class="sort-by">Sort by:</div>
             <div class="sort-by-sent sort-btn" @click="sort('date')">Sent At</div>
             <div class="sort-by-title sort-btn" @click="sort('title')">Title</div>
         </div>
@@ -13,7 +13,6 @@ export default {
     `,
     data() {
         return {
-            showOpts: false,
         }
     },
     methods: {
@@ -21,4 +20,7 @@ export default {
             this.$emit('sort', sortParam);
         }
     },
+    computed: {
+
+    }
 }

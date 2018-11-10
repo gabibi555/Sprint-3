@@ -5,7 +5,6 @@ import emailList from '../../cmps/email-cmps/email-list.cmp.js';
 import emailFilter from '../../cmps/email-cmps/email-filter.cmp.js';
 import storageService from '../../services/storage-service.js';
 import emailStatus from '../../cmps/email-cmps/email-status.cmp.js';
-import emailSort from '../../cmps/email-cmps/email-sort.cmp.js';
 
 
 
@@ -17,12 +16,8 @@ export default {
             <span class="unread-emails">Unread Emails: {{unreadCount}}</span>
             <email-status class="email-status" v-if="filter && filter.emailStatus === 'all'" :emailsProg="emails"></email-status>  
         </div>
-        <div class="filter-sort-container">
-            <email-filter @filtered="setFilter"></email-filter>
-            <email-sort @sort="sort"></email-sort>
+            <email-filter @sorted="sort" :emails="emails" @filtered="setFilter"></email-filter>
         </div>
-        <!-- <email-list :filter="filter" v-if="emails.length>0 && !selected" 
-            @selected="selectEmail" :emails="emailsToShow"></email-list> -->
             <router-view @unSelected="unSelect" @delete="deleteEmail"
             :filter="filter" v-if="emails.length>0"
             @selected="selectEmail" :emails="emailsToShow"></router-view>
@@ -67,13 +62,6 @@ export default {
         composeEmail() {
             this.$router.push('/emailville/compose');
         },
-        sort(sortParam) {
-            emailService.sortEmails(sortParam)
-                .then(emails => {
-                    this.emails = emails;
-                    this.$router.push('/emailville');
-                })
-        },
         unreadEmailsCheck() {
             var unreadCount = 0;
             this.emails.forEach(email => {
@@ -81,6 +69,9 @@ export default {
             })
             this.unreadCount = unreadCount;
             console.log(unreadCount);
+        },
+        sort(emails) {
+            this.emails = emails;
         }
     },
     created() {
@@ -117,7 +108,6 @@ export default {
     components: {
         emailList,
         emailFilter,
-        emailSort,
         emailStatus
     }
 }
