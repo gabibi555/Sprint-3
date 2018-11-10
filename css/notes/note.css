@@ -170,6 +170,7 @@ textarea{
 }
 .note-editor{
     text-align: center;
+    min-width: 510px;
 }
 .nav-btn{
     margin-top: 10px;
