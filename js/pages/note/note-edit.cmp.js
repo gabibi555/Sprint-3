@@ -15,19 +15,19 @@ export default {
         <note-img v-if="note.url" :note="note"></note-img>
         <note-todo v-if="note.type === 'todo'" :note="note"></note-todo>
         <div class="nav-btn">
-            <button @click="goBack">Back To Notes</button>
-            <button @click="deleteNote">Delete Note</button>
-            <button @click="editOldNote">Save Note</button>
+            <button class="btn-text-note" @click="goBack">Back To Notes</button>
+            <button class="btn-text-note" @click="deleteNote">Delete Note</button>
+            <button class="btn-text-note" @click="editOldNote">Save Note</button>
         </div>
     </section>
 
     <div v-else class="note-editor">
         <h4>Add Note</h4>
         <div class="note-pick-btns">
-            <button @click="setNoteAdd('text')">text note</button>
-            <button @click="setNoteAdd('image')">image note</button>
-            <button @click="setNoteAdd('todo')">todo note</button>
-            <button @click="goBack">Back To Notes</button>
+            <button class="btn-text-note" @click="setNoteAdd('text')">text note</button>
+            <button class="btn-text-note" @click="setNoteAdd('image')">image note</button>
+            <button class="btn-text-note" @click="setNoteAdd('todo')">todo note</button>
+            <button class="btn-text-note" @click="goBack">Back To Notes</button>
         </div>
         <note-txt @addNewNote="addNote" class="text-note-add-container" v-if="note.type === 'text'" :note="note"></note-txt>
         <note-img v-if="note.type === 'image'" @addNewNote="addNote":note="note"></note-img>

@@ -5,9 +5,9 @@ export default {
     template: `
     <section class="todo-control" :style="{background: note.background}">
         <div class=todo-input-container>
-            <input type="text" v-model="note.title" placeholder="Name Your Note">
+            <input class="text-input" type="text" v-model="note.title" placeholder="Name Your Note" :style="{background: note.background}">
             <div>
-            <button @click="addNewTodo">Add Todo</button>
+            <button class="btn-todo-note" @click="addNewTodo">Add Todo</button>
             <input class="text-input" type="text" v-model="newTodo.txt">
             </div>
         </div>
@@ -16,8 +16,8 @@ export default {
         <li v-for="(txt,idx) in note.txts" type="text">
             <span v-if="newTodo.isDone" style="textDecoration:line-through;">{{txt.txt}}</span>
             <span v-else>{{txt.txt}}</span>
-            <button @click="deleteTodo(idx)">X</button>
-            <button @click="markDoneTodo(txt, $event)">V</button>
+            <button class="delete-todo-btn" @click="deleteTodo(idx)">X</button>
+            <button class="mark-done-btn" @click="markDoneTodo(txt, $event)">✓</button>
         </li>
         </div>
         <button v-if="!note.id" @click="addNote">Save Todo</button>
