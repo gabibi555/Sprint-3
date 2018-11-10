@@ -11,7 +11,10 @@
     min-width: 491px;
 }
 button{
+    text-decoration: none;
     cursor:pointer;
+    border: none;
+    outline:none;
     
 }
 .add-btn{

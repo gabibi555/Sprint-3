@@ -1,0 +1,58 @@
+.home-page{
+    min-width: 510px;
+}
+.big-btns-container{
+
+}
+.home-title{
+ margin-left: 30%;
+ padding: 30px;
+ font-size: 50px;
+}
+
+.go-to-emailtxt{
+    font-size: 30px;
+    align-self: center;
+}
+.go-to-email{
+    margin-bottom: 50px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-self: auto;
+    max-width: 200px;
+    height: 200px;  
+    background-color: #4a9bdb;
+    border-radius: 50%;
+    -webkit-box-shadow: -4px 5px 17px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -4px 5px 17px 5px rgba(0,0,0,0.75);
+    box-shadow: -4px 5px 17px 5px rgba(0,0,0,0.75);
+    transition: 0.5
+}
+
+.go-to-note{
+    margin-top:50px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-self: auto;
+    max-width: 200px;
+    height: 200px;  
+    background: #40b244;
+    border-radius: 50%;
+    -webkit-box-shadow: -4px 5px 17px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -4px 5px 17px 5px rgba(0,0,0,0.75);
+    box-shadow: -4px 5px 17px 5px rgba(0,0,0,0.75);
+    transition: 0.5
+}
+.img-email{
+    align-self: center;
+    object-fit: 
+}
+@media (max-width: 1000px) {
+    .home-title{
+        margin: 0
+    }
+  
+}
