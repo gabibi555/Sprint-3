@@ -38,9 +38,9 @@ function getNoteById(NoteId) {
 }
 
 function editNote(noteToSave){
+    console.log(noteToSave)
     var idx =  notesDB.findIndex(note=> note.id === noteToSave.id) 
-    notesDB.splice(idx,1)
-    notesDB.unshift(noteToSave)
+    notesDB[idx] = noteToSave
     storageService.store(KEY, notesDB)
 }
 
@@ -55,19 +55,19 @@ function addNewNote(noteToSave){
 
 function deleteNote(noteId) {
     var idx = notesDB.findIndex(note => note.id === noteId)
+    if(idx === -1) return 
     notesDB.splice(idx, 1)
     storageService.store(KEY, notesDB)
 }
 
 function createInitialNotes() {
-    console.log('hey')
     return [
         {
             id: utilService.makeId(6),
             title: 'reminder',
             type: 'text',
             txts: ['dont forget to close the AC'],
-            importance: false,
+            background: '#C390D4',
         },
         {
             id: utilService.makeId(6),
@@ -75,7 +75,7 @@ function createInitialNotes() {
             title: 'fix the roof',
             txts: ['buying nails'],
             url:'../img/img-icon.png',
-            importance: false,
+            background: '#7EDE96',
         },
         {
             id: utilService.makeId(6),
@@ -85,7 +85,7 @@ function createInitialNotes() {
                 {txt: 'to do landury', isDone: false},
                 {txt: 'to do Css', isDone: false}
                 ],
-            importance: false,
+            background: '#D9BA5D',
         },
 
     ]

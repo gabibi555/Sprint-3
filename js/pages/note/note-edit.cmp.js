@@ -43,6 +43,7 @@ export default {
                 txts: [],
                 url: null,
                 importance: false,
+                background: null,
             },
         }
     },
@@ -85,7 +86,6 @@ export default {
         }
     },
     created() {
-        // console.log('created')
         if (this.$route.params.noteId) {
             noteService.query()
                 .then(() => {
@@ -97,13 +97,20 @@ export default {
                             this.note.id = note.id
                             this.note.importance = note.importance
                             this.note.url = note.url
+                            this.note.background = note.background
                         })
+                }),
+                eventBus.$on('changeColor', (note) => {
+                    console.log('im here')
+                    noteService.editNote(note)
+                    console.log('event bus !EDITSSS!', note);
+
                 })
         }
-        eventBus.$on('deleteNote', (note)=> {
+        eventBus.$on('deleteNote', (note) => {
             console.log('event bus !on!', note);
             this.deleteTodo(note.id)
-            
+
         })
 
     },

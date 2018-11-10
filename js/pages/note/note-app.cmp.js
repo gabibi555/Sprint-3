@@ -8,10 +8,7 @@ import eventBus from '../../event-bus.js'
 export default {
     template: `
         <section class="note-app">
-            
-        <!-- <h1>{{(note.id)? 'Edit Car': 'Add Car'}}</h1> -->
         <h1>Welcome To NoteVille</h1>
-        <button @click="goToEdit">New Note</button> 
         <note-list @selected="selectNote" :notes="notes"></note-list>
         </section>
     `,
@@ -29,10 +26,10 @@ export default {
         },
         deleteNote(noteId) {
             noteService.deleteNote(noteId)
-            // this.goBack()
         }
     },
     created() {
+        console.log(this.notes)
         noteService.query()
             .then(notes => this.notes = notes)
 

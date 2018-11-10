@@ -3,7 +3,7 @@
 export default {
     props: ['note'],
     template: `
-        <section v-if="note.id" class="img-note-container">
+        <section v-if="note.id" class="img-note-container" :style="{background: note.background}">
         <input class="text-input" type="text" v-model="note.title" placeholder="Name Your Note">
             <div class="edit-img-container"><img v-if="note.url" :src="note.url" /></div>
         </section>

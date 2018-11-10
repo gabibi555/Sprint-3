@@ -3,7 +3,7 @@
 export default {
     props: ['note'],
     template: `
-    <section class="todo-control">
+    <section class="todo-control" :style="{background: note.background}">
         <div class=todo-input-container>
             <input type="text" v-model="note.title" placeholder="Name Your Note">
             <div>
@@ -61,8 +61,6 @@ export default {
             }
         },
         addNewTodo() {
-            console.log('new todo',this.newTodo)
-            console.log('this note',this.newTodo)
             this.note.txts.push(this.newTodo)
             this.newTodo = {
                 txt: '',
@@ -78,6 +76,7 @@ export default {
 
     },
     created() {
+        console.log(this.note.background)
         console.log('created TODO', this.note)
 
     },

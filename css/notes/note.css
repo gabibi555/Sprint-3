@@ -1,25 +1,103 @@
+.note-app{
+    text-decoration: none;
+}
 .note-list{
     display: flex;
     flex-wrap: wrap;
+    font-family: Quicksand;
 }
-.note-preview-container{
+button{
+    cursor:pointer;
     
+}
+.add-btn{
+    height: 100px;
+    position: relative;
+    width: 20px;
+    background: #91c850;
+}
+.add-note{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 150px;
+    max-height: 280px;
+    border: 1px solid   ;
+    border-radius: 5px;
+    text-align: center;
+    margin:5px;
+    padding:10px;
+    cursor: pointer;
+}
+
+
+.add-btn::after{
+    background: #91c850;
+    content: "";
+    height: 20px;
+    left: -40px;
+    position: absolute;
+    top: 40px;
+    width: 100px;
+}
+.note-background-color-purp{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 0.5px black solid;
+    background-color: #C390D4;
+    
+}
+.note-background-color-green{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 0.5px black solid;
+    background-color: #7EDE96;
+}
+.note-background-color-orange{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 0.5px black solid;
+    background-color: #D9BA5D;
+}
+.delete-note-btn{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
 }
 
 .title{
     margin: auto;
 }
 .note-container{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 150px;
-    height: 240px;
-    border: 1px solid saddlebrown;
+    min-width: 150px;
+    min-height: 280px;
+    /* max-height: 280px; */
+    border: 1px solid   ;
+    border-radius: 5px;
     text-align: center;
     margin:5px;
-    padding:2px;
+    padding:10px;
     cursor: pointer;
+    background-color: #7EDE96
+}
+
+.note-preview-container{
+    position: absolute;
+    bottom: 5%;
 }
 
 textarea{
@@ -42,6 +120,8 @@ textarea{
     flex-direction: column;
     margin: 0 auto;
     border: 1px solid;
+    border-radius: 10px;
+    padding: 10px;
 }
 .todo-note-add-container{
     display: flex;

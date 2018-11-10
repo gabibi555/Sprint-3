@@ -3,15 +3,17 @@
 export default {
     props: ['note'],
     template: `
-        <section v-if="note.id" class="img-note-container" >
+        <section v-if="note.id" class="img-note-container"  :style="{background: note.background}">
             <div class="title">{{note.title}}</div>
-            <textarea v-if="note.type === 'text'" v-model="note.txts[0]" rows="4" cols="20"></textarea>
+            <textarea v-if="note.type === 'text'" v-model="note.txts[0]" rows="4" cols="20" :style="{background: note.background}">      
+            </textarea>
         </section> 
         <section v-else>
-              <div class="text-note-add-container">
+              <div class="text-note-add-container" :style="{background: note.background}">
                     <input class="text-input" type="text" v-model="note.title" placeholder="Name Your Note">
                     <textarea v-model="note.txts[0]" rows="4" cols="20">
                     </textarea>
+                    
                     <button @click="addNote">Save Note</button>
                 </div> 
             </div> 
