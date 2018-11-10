@@ -1,3 +1,5 @@
+
+
 .note-app{
     text-decoration: none;
     margin-left: 300px;
@@ -15,7 +17,13 @@ button{
     height: 100px;
     position: relative;
     width: 20px;
-    background: #91c850;
+    background:  #40b244;
+    border-radius: 10px;
+    transition: all .2s ease-in-out
+}
+
+.add-btn:hover{
+    transform: scale(1.03);
 }
 .add-note{
     display: flex;
@@ -31,17 +39,23 @@ button{
     margin:5px;
     padding:10px;
     cursor: pointer;
+    transition: all .2s ease-in-out
+    
+}
+.add-note:hover{
+    transform: scale(1.03);
 }
 
 
 .add-btn::after{
-    background: #91c850;
+    background:  #40b244;
     content: "";
     height: 20px;
     left: -40px;
     position: absolute;
     top: 40px;
     width: 100px;
+    border-radius: 10px;
 }
 .note-background-color-purp{
     width: 20px;
@@ -93,7 +107,7 @@ button{
     margin:5px;
     padding:10px;
     cursor: pointer;
-    background-color: #7EDE96
+    background-color: #7EDE96;
 }
 
 .note-preview-container{
@@ -174,7 +188,7 @@ textarea{
     align-items: center;
 }
 .note-pick-btns{
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     margin: 5px;
     margin: 0 auto;
     margin-bottom: 10px;
@@ -238,4 +252,16 @@ textarea{
     cursor: pointer;
     transition: all .2s ease-in-out;
     margin:4px;
+}
+
+@media (max-width: 1000px) {
+    .note-app{
+        text-decoration: none;
+        margin-left: 16px;
+    }
+    .todo-control{
+        justify-content: space-evenly;
+    }
+   
+
 }
