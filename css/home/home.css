@@ -1,9 +1,7 @@
 .home-page{
     min-width: 510px;
 }
-.big-btns-container{
 
-}
 .home-title{
  margin-left: 30%;
  padding: 30px;
@@ -17,7 +15,6 @@
 }
 .go-to-email{
     margin-bottom: 50px;
-    margin-top: 50px;
     display: flex;
     justify-content: center;
     margin: auto;
@@ -47,13 +44,13 @@
     box-shadow: -4px 5px 17px 5px rgba(0,0,0,0.75);
     transition: 0.5
 }
-.img-email{
-    align-self: center;
-    object-fit: 
-}
+
 @media (max-width: 1000px) {
     .home-title{
         margin: 0
+    }
+    ..big-btns-container{
+        
     }
   
 }

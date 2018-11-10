@@ -17,7 +17,7 @@ export default {
                       To noteVile
                   </div>
               </div>
-              </div>
+              
           </div>
         </section>
     `,
