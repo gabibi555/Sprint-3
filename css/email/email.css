@@ -1,5 +1,3 @@
-
-
 .email-app-container {
     font-family: Quicksand;
     flex: 1;
@@ -221,11 +219,43 @@
 
 .email-details-body {
     font-family: Quicksand;
+    white-space: normal;
 }
 
 .email-details-container {
     border: solid #b9b9b9 1px;
     padding: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+    width: 491px;
+    height: 528px;
+}
+
+.compose-massage {
+    border: solid #b9b9b9 1px;
+    padding: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+    width: 491px;
+    height: 528px;
+}
+
+.to-subject-compose {
+    display: flex;
+}
+
+.subject-compose {
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.to-compose {
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .normal-btn {
@@ -242,7 +272,15 @@
 }
 
 .details-back-btn {
-    margin-left: 300px;
+    top: 20px;
+    right: 20px;
+    position: absolute;
+}
+
+.details-delete-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
 }
 
 .sort-by {
@@ -250,7 +288,6 @@
 }
 
 @media (min-width: 1000px) {
-
     .single-email-box {
         height: 2rem;
         font-size: 16px;
@@ -302,5 +339,14 @@
     .compose-email-btn {
         bottom: 66px;
         right: 9%;
+    }
+    .email-details-container {
+        width: 1055px;
+        height: 501px;
+        margin-left: 21px;
+    }
+    .details-delete-btn {
+        position: absolute;
+        bottom: 30px;
     }
 }

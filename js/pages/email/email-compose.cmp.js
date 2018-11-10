@@ -4,20 +4,14 @@ export default {
     template: `
         <section class="page-content compose-email">
             <div class="compose-func">
-                <button @click="goBack">X</button>
-                <button @click="sendEmail">Send ></button>
+                <button @click="goBack" class="normal-btn">Back</button>
+                <button @click="sendEmail" class="normal-btn">Send</button>
             </div>
-            <div class="label-holder">
-                <label>
-                    <span>to:</span> 
-                    <input type="text" v-model="email.to">
-                </label>
-                <label>
-                    <span>subject:</span>  
-                    <input type="text" v-model="email.subject">
-                </label>
+            <div class="to-subject-compose">
+                    <div class="to-compose">to:<input type="text" v-model="email.to"></div>
+                   <div class="subject-compose">subject:<input type="text" v-model="email.subject"></div>
             </div>
-            <textarea v-model="email.body" placeholder="Enter message here..."></textarea>
+            <textarea class="compose-massage" v-model="email.body" placeholder="Enter message here..."></textarea>
         </section>
     `,
     data() {

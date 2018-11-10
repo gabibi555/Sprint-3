@@ -7,7 +7,7 @@ export default {
             Subject: <button class="normal-btn details-back-btn" @click="back">Back</button>
             <div>{{email.subject}}</div>
             Massage: <pre class="email-details-body">{{email.body}}</pre>
-            <button class="normal-btn" @click="deleteEmail">Delete</button>
+            <button class="normal-btn details-delete-btn" @click="deleteEmail">Delete</button>
         </section>
     `,
     data() {
