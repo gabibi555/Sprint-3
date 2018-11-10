@@ -8,6 +8,7 @@
     display: flex;
     flex-wrap: wrap;
     font-family: Quicksand;
+    min-width: 491px;
 }
 button{
     cursor:pointer;
