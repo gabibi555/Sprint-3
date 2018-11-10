@@ -7,12 +7,12 @@ export default {
                  Welcome to AppSus
             </div>
           <div class="big-btns-container">
-              <div class="go-to-email">
+              <div @click="goEmail" class="go-to-email">
                   <div class="go-to-emailtxt">
                       To emailVile
                   </div>
               </div>
-              <div class="go-to-note">
+              <div @click="goNote" class="go-to-note">
                   <div class="go-to-emailtxt">
                       To noteVile
                   </div>
@@ -26,11 +26,15 @@ export default {
         }
     },
     methods: {
-       
-
+        goEmail() {
+            this.$router.push('/emailville');
+        },
+        goNote() {
+            this.$router.push('/noteville');
+        }
     },
     created() {
-        
+
     },
     computed: {
 
